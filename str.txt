@@ -1,0 +1,42 @@
+my-shop/
+├─ backend/
+│ ├─ src/
+│ │ ├─ server.js
+│ │ ├─ config/
+│ │ │ ├─ db.js
+│ │ │ └─ stripe.js
+│ │ ├─ models/
+│ │ │ ├─ User.js
+│ │ │ ├─ Order.js
+│ │ │ └─ Payment.js
+│ │ ├─ controllers/
+│ │ │ ├─ authController.js
+│ │ │ ├─ orderController.js
+│ │ │ ├─ paymentController.js
+│ │ │ └─ webhookController.js
+│ │ ├─ routes/
+│ │ │ ├─ authRoutes.js
+│ │ │ ├─ orderRoutes.js
+│ │ │ ├─ paymentRoutes.js
+│ │ │ └─ webhookRoutes.js
+│ │ ├─ middleware/
+│ │ │ ├─ auth.js
+│ │ │ ├─ asyncHandler.js
+│ │ │ ├─ errorHandler.js
+│ │ │ └─ rateLimit.js
+│ │ └─ utils/logger.js
+│ ├─ .env.example
+│ └─ package.json
+├─ frontend/
+│ ├─ src/
+│ │ ├─ main.jsx
+│ │ ├─ App.jsx
+│ │ ├─ api/axios.js
+│ │ ├─ pages/
+│ │ │ ├─ Login.jsx
+│ │ │ ├─ Cart.jsx
+│ │ │ └─ Checkout.jsx
+│ │ └─ context/AuthContext.jsx
+│ ├─ index.html
+│ └─ package.json
+└─ README.md
