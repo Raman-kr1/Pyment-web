@@ -23,3 +23,7 @@ export const logout = (req, res) => {
   res.clearCookie('token');
   res.json({ message: 'Logged out' });
 };
+
+export const getMe = asyncHandler(async (req, res) => {
+  res.json({ user: req.user });
+});
