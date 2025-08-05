@@ -1,4 +1,4 @@
-my-shop/
+Pyment-web/
 ├─ backend/
 │ ├─ src/
 │ │ ├─ server.js
