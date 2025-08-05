@@ -10,42 +10,34 @@ import Gallery from './pages/Gallery';
 import Contributors from './pages/Contributors';
 import Contact from './pages/Contact';
 
-
+// This component now works correctly because it won't render
+// until the AuthProvider has finished its loading check.
 function ProtectedRoute({ children }) {
-  const { user, loading } = useContext(AuthCtx); // Destructure loading state
-
-
-  if (loading) {
-    return <div className="page-container">Checking authentication...</div>;
-  }
-
-  
+  const { user } = useContext(AuthCtx);
   return user ? children : <Navigate to="/login" />;
 }
 
-
-function AppContent() {
+function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/donate" element={<ProtectedRoute><DonationPage /></ProtectedRoute>} />
-        <Route path="/gallery" element={<ProtectedRoute><Gallery /></ProtectedRoute>} />
-        <Route path="/contributors" element={<ProtectedRoute><Contributors /></ProtectedRoute>} />
-        <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  );
-}
-
-export default function App() {
-  return (
+    // The AuthProvider wraps the entire application.
+    // It will show "Loading..." until the session is checked,
+    // then it will render the BrowserRouter and all its children.
     <AuthProvider>
-      <AppContent />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/donate" element={<ProtectedRoute><DonationPage /></ProtectedRoute>} />
+          <Route path="/gallery" element={<ProtectedRoute><Gallery /></ProtectedRoute>} />
+          <Route path="/contributors" element={<ProtectedRoute><Contributors /></ProtectedRoute>} />
+          <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </AuthProvider>
   );
 }
+
+export default App;
