@@ -1,0 +1,50 @@
+# ## General ###
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# ## Backend ###
+
+# Node modules
+backend/node_modules
+
+# Environment variables
+backend/.env
+
+# Private certificates for HTTPS
+backend/certificates/
+
+# IDE settings
+backend/.vscode/
+
+
+# ## Frontend ###
+
+# Node modules
+frontend/node_modules
+
+# Build output folder
+frontend/dist
+
+# Environment variables
+frontend/.env*
+!frontend/.env.example
+
+# IDE settings
+frontend/.vscode/
